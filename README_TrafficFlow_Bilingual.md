@@ -101,6 +101,10 @@ Vehicle Z = Terrain Hit Z + Terrain Z Offset + Vehicle Ground Z Offsets[index]
 车辆 Z = 地形命中 Z + Terrain Z Offset + Vehicle Ground Z Offsets[index]
 ```
 
+When terrain detection hits a sloped surface, the vehicle rotation also aligns to the terrain normal while keeping the forward direction along the spline.
+
+当射线命中坡面时，车辆角度也会根据地形法线对齐，同时保持车辆前进方向沿样条路径。
+
 If a vehicle mesh has a different imported pivot, wheel baseline, or visual bottom offset, adjust `Vehicle Ground Z Offsets` on `BP_TrafficFlowManager`. This array is matched by index to `Vehicle Types`:
 
 如果车辆模型的导入轴心、车轮基准线或视觉底部高度不同，请在 `BP_TrafficFlowManager` 上调整 `Vehicle Ground Z Offsets`。该数组按索引顺序对应 `Vehicle Types`：
