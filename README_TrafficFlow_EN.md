@@ -141,9 +141,9 @@ Vehicles based on `TrafficVehicleActor` can use automatic wheel rotation. Config
 
 ## Notes / 注意事项
 
-- UE5.5, UE5.7, and UE5.8 include precompiled Win64 editor binaries. / UE5.5、UE5.7、UE5.8 包含预编译的 Win64 编辑器二进制文件。
-- UE5.6 is provided as SourceOnly and requires a complete UE5.6 C++ build environment. / UE5.6 为 SourceOnly 包，需要完整的 UE5.6 C++ 构建环境。
-- For SourceOnly usage, install the plugin under your project's `Plugins` folder and build the project through your IDE. / 使用 SourceOnly 包时，请将插件放到项目的 `Plugins` 目录，并通过 IDE 构建项目。
+- UE5.5, UE5.6, UE5.7, and UE5.8 include precompiled Win64 editor binaries. / UE5.5、UE5.6、UE5.7、UE5.8 均包含预编译的 Win64 编辑器二进制文件。
+- The UE5.6 download filename is retained for link compatibility, but the current UE5.6 package now includes precompiled binaries. / UE5.6 下载文件名为保持链接兼容而保留，但当前 UE5.6 包已经包含预编译二进制文件。
+- You can install the matching single-version package under either your project `Plugins` folder or the engine `Engine/Plugins` folder. / 可以将匹配的单版本包安装到项目的 `Plugins` 目录，或引擎的 `Engine/Plugins` 目录。
 - Use only the single-version package that matches your Unreal Engine version. / 只使用与你的 Unreal Engine 版本匹配的单版本包。
 - The old AllVersions archive is not required. / 不再需要旧的 AllVersions 总包。
 - Do not mix CN and EN packages in the same plugin folder. / 不要在同一个插件目录中混用 CN 和 EN 包。
