@@ -61,6 +61,8 @@ Enable `Loop Traffic` if you want vehicles to continue from the end of the splin
 - `Use Random Speed`: randomizes initial speed.
 - `Use Dynamic Speed Variation`: varies speed during runtime.
 - `Use Terrain Detection`: projects vehicles onto terrain using downward traces.
+- `Terrain Z Offset`: global height offset added after terrain detection.
+- `Vehicle Ground Z Offsets`: per-vehicle-type height offsets. The array order matches `Vehicle Types`. Use negative values for vehicles floating above the terrain and positive values for vehicles sinking below the terrain.
 - `Show Editor Preview`: previews vehicle distribution without entering Play mode.
 
 ## Vehicle Replacement
@@ -68,6 +70,26 @@ Enable `Loop Traffic` if you want vehicles to continue from the end of the splin
 Use the `Vehicle Types` array on `BP_TrafficFlowManager` to add or replace vehicle classes. Each vehicle type can define a name, actor class, mesh, scale, length, desired speed, and spawn weight.
 
 `Vehicle Class` can be a custom Actor class or a subclass of `TrafficVehicleActor`. Subclasses of `TrafficVehicleActor` support additional helper behavior such as mesh replacement, wheel rotation, vehicle length, and speed synchronization.
+
+## Terrain Alignment
+
+Enable `Use Terrain Detection` to place vehicles on the detected road or terrain surface. The manager traces downward from each vehicle pivot and uses the hit point as the base ground height.
+
+If a vehicle mesh has a different imported pivot, wheel baseline, or visual bottom offset, adjust `Vehicle Ground Z Offsets` on `BP_TrafficFlowManager`. This array is matched by index to `Vehicle Types`:
+
+```text
+Vehicle Ground Z Offsets[0] -> Vehicle Types[0]
+Vehicle Ground Z Offsets[1] -> Vehicle Types[1]
+Vehicle Ground Z Offsets[2] -> Vehicle Types[2]
+```
+
+Typical values:
+
+- Floating vehicle: use a negative offset, for example `-20`.
+- Sinking vehicle: use a positive offset, for example `20`.
+- Correctly aligned vehicle: keep `0`.
+
+Use `Terrain Z Offset` only when all vehicles need the same global height adjustment. Use `Vehicle Ground Z Offsets` when only specific vehicle meshes need correction.
 
 ## Overtaking
 
@@ -83,4 +105,3 @@ Vehicles based on `TrafficVehicleActor` can use automatic wheel rotation. Config
 - UE5.6 is provided as SourceOnly and requires a complete UE5.6 C++ build environment.
 - This plugin is intended for local simulation, visualization, cinematic scenes, editor-driven traffic population, and non-networked traffic scenes.
 - No password or additional download software is required.
-
